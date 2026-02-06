@@ -1,68 +1,65 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+body{
+  background: var(--bg-pri);
+  color: var(--text-pri);
+}
+:root{
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* ========== BACKGROUND COLORS ========== */
+  --bg-pri: #0F172A;      /* main app background (deep navy) */
+  --bg-sec: #1E293B;      /* cards, panels */
+  --bg-ter: #334155;      /* hover surfaces / subtle contrast */
+  --bg-acc: #5C6AC4;      /* primary brand color */
+  --bg-act: #22D3EE;      /* buttons, active states */
+  --bg-danger: #F87171;   /* errors */
+  --bg-success: #34D399;  /* success */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* ========== TEXT COLORS ========== */
+  --text-pri: #F1F5F9;    /* main readable text */
+  --text-sec: #94A3B8;    /* secondary text */
+  --text-muted: #64748B;  /* completed / low priority */
+  --text-inverse: #0F172A;/* text on bright buttons */
+  --text-danger: #FCA5A5;
+  --text-success: #6EE7B7;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/* ========== ACCENT USAGE ========== */
+  --border-subtle: #2A3441;
+  --focus-ring: #22D3EE;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+/* ========== SPACING (kept yours, good scale) ========== */
+  --padding-sm:0.5rem;
+  --padding-md:1rem;
+  --padding-lg:1.5rem;
+  --padding-xl:2rem;
+  --padding-2xl:3rem;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+  --margin-sm:0.5rem;
+  --margin-md:1rem;
+  --margin-lg:1.5rem;
+  --margin-xl:2rem;
+  --margin-2xl:3rem;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+  --gutter-sm:0.5rem;
+  --gutter-md:1rem;
+  --gutter-lg:1.5rem;
+  --gutter-xl:2rem;
+  --gutter-2xl:3rem;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ========== TYPOGRAPHY SCALE (solid) ========== */
+  --font-sm:0.75rem;
+  --font-md:1rem;
+  --font-lg:1.25rem;
+  --font-xl:1.5rem;
+  --font-2xl:2rem;
+
+/* ========== RADIUS (nice modern softness) ========== */
+  --radius-sm:0.25rem;
+  --radius-md:0.5rem;
+  --radius-lg:0.75rem;
+  --radius-xl:1rem;
+  --radius-2xl:1.25rem;
 }
