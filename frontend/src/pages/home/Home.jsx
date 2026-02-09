@@ -1,27 +1,20 @@
-import React, { useContext, useState } from "react";
+import  {  useState } from "react";
 import Header from "../../components/header/Header.jsx";
 import "./home.css";
+import { useFilterTasks } from "../.././hooks/filterTasks.jsx";
+
 const Home = () => {
   const [task, setTask] = useState([]);
   const [inputVal, setinputVal] = useState("");
+  const { pendingList, completeList, renderList ,addNewTask} = useFilterTasks(
+    task,
+    setTask,
+    inputVal,
+    setinputVal
+    
+  );
 
-  const addTaskHandler = (data) => {
-    if (!inputVal.trim()) return;
-    // setTask(inputVal);
-    let existingTask = JSON.parse(localStorage.getItem("tasks")) || [];
-    let updatedTasks=[...existingTask,inputVal];
 
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-  };
-  const renderAllTasks = () => {
-    // StylePropertyMap
-    // task.map((item,i)=> {item, i})
-    let items = localStorage.getItem(JSON.stringify("taskName"));
-    setTask({ inputVal });
-    console.log(task);
-
-    // return <>"task"</>
-  };
   return (
     <div className="container">
       <Header />
@@ -39,7 +32,7 @@ const Home = () => {
           onChange={(e) => setinputVal(e.target.value)}
         />{" "}
         {/* <br /> */}
-        <button type="submit" onClick={addTaskHandler}>
+        <button type="submit" onClick={addNewTask}>
           Add
         </button>
       </section>
@@ -54,10 +47,14 @@ const Home = () => {
           }}
         >
           <div>
-            All <br /> {task}
+            All <br /> {renderList}
           </div>
-          <div>pending </div>
-          <div>completed </div>
+          <div>
+            pending <br /> {pendingList}
+          </div>
+          <div>
+            completed <br /> {completeList}
+          </div>
         </div>
       </section>
     </div>
