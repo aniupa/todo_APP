@@ -1,7 +1,9 @@
-import { useEffect, useMemo } from "react";
+import { useContext  } from "react";
 import uniqid from "uniqid";
+import { MyContext } from "../context/context";
 
-export const useFilterTasks = (task, setTask, inputVal, setinputVal) => {
+export const useFilterTasks = () => {
+  const {task, setTask, inputVal, setInputVal}=useContext(MyContext);
   const handleCheck = (index, status) => {
     const updatedTask = task.map((item) =>
       index === item.id ? { ...item, isCompleted: status } : item,
@@ -9,10 +11,7 @@ export const useFilterTasks = (task, setTask, inputVal, setinputVal) => {
     setTask(updatedTask);
     localStorage.setItem("tasks", JSON.stringify(updatedTask));
   };
-  useEffect(() => {
-    const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setTask(existingTasks);
-  }, []);
+ 
 
   const addNewTask = () => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -21,7 +20,7 @@ export const useFilterTasks = (task, setTask, inputVal, setinputVal) => {
     const updatedTasks = [...existingTasks, newTask];
 
     setTask(updatedTasks);
-    setinputVal("");
+    setInputVal("");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
   const pendingTasks = task.filter((item) => item.isCompleted === false);

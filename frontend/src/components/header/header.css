@@ -1,5 +1,20 @@
-header{
-    display: flex;
-    justify-content: space-between;
-    margin-top: var(--margin-sm);
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gutter-2xl);
+  margin-top: var(--margin-sm);
+}
+input {
+  border: none;
+  background-color: var(--bg-ter);
+  padding: 2px var(--padding-md);
+  border-radius: var(--radius-sm);
+}
+button{
+    
+  padding: 2px var(--padding-sm);
+    background: var(--bg-success);
+  border-radius: var(--radius-sm);
 }

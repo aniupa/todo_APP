@@ -1,23 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Header from "../../components/header/Header.jsx";
 import "./home.css";
 import { useFilterTasks } from "../.././hooks/filterTasks.jsx";
+import { MyContext } from "../../context/context.jsx";
 
 const Home = () => {
-  const [task, setTask] = useState([]);
-  const [inputVal, setinputVal] = useState("");
   const [filterPg, setfilterPg] = useState(1);
-  const { pendingList, completeList, renderList, addNewTask } = useFilterTasks(
+
+  const { task, setTask, inputVal, setInputVal } = useContext(MyContext);
+  const { pendingList, completeList, renderList } = useFilterTasks(
     task,
     setTask,
     inputVal,
-    setinputVal,
+    setInputVal,
   );
 
   return (
     <div className="container">
       <Header />
-      
+
       <section>
         <br />
         <div
