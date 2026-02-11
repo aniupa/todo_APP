@@ -1,65 +1,76 @@
-*{
-  padding: 0%;
-  margin: 0%;
+:root {
+  /* ========== BACKGROUND COLORS ========== */
+  --bg-pri: #0f172a; /* main app background (deep navy) */
+  --bg-sec: #1e293b; /* cards, panels */
+  --bg-ter: #334155; /* hover surfaces / subtle contrast */
+  --bg-acc: #5c6ac4; /* primary brand color */
+  --bg-act: #22d3ee; /* buttons, active states */
+  --bg-danger: #f87171; /* errors */
+  --bg-success: #34d399; /* success */
+
+  /* ========== TEXT COLORS ========== */
+  --text-pri: #f1f5f9; /* main readable text */
+  --text-sec: #94a3b8; /* secondary text */
+  --text-muted: #64748b; /* completed / low priority */
+  --text-inverse: #0f172a; /* text on bright buttons */
+  --text-danger: #fca5a5;
+  --text-success: #6ee7b7;
+
+   /* ========== CARD COLORS ========== */
+ 
+  --card-pri: #f1f5f9; /* main readable text */
+  --card-sec: #94a3b8; /* secondary text */
+  --card-muted: #64748b; /* completed / low priority */
+  --card-inverse: #0f172a; /* text on bright buttons */
+  --card-danger: #fca5a5;
+  --card-success: #6ee7b7;
+
+  /* ========== ACCENT USAGE ========== */
+  --border-pri: #2a3441;
+  --focus-ring: #22d3ee;
+
+  /* ========== SPACING (kept yours, good scale) ========== */
+  --padding-sm: 0.5rem;
+  --padding-md: 1rem;
+  --padding-lg: 1.5rem;
+  --padding-xl: 2rem;
+  --padding-2xl: 3rem;
+
+  --margin-sm: 0.5rem;
+  --margin-md: 1rem;
+  --margin-lg: 1.5rem;
+  --margin-xl: 2rem;
+  --margin-2xl: 3rem;
+
+  --gutter-sm: 0.5rem;
+  --gutter-md: 1rem;
+  --gutter-lg: 1.5rem;
+  --gutter-xl: 2rem;
+  --gutter-2xl: 3rem;
+
+  /* ========== TYPOGRAPHY SCALE (solid) ========== */
+  --font-sm: 0.75rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 2rem;
+
+  /* ========== RADIUS (nice modern softness) ========== */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+* {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-body{
+body,
+html {
   background: var(--bg-pri);
   color: var(--text-pri);
-}
-:root{
-
-/* ========== BACKGROUND COLORS ========== */
-  --bg-pri: #0F172A;      /* main app background (deep navy) */
-  --bg-sec: #1E293B;      /* cards, panels */
-  --bg-ter: #334155;      /* hover surfaces / subtle contrast */
-  --bg-acc: #5C6AC4;      /* primary brand color */
-  --bg-act: #22D3EE;      /* buttons, active states */
-  --bg-danger: #F87171;   /* errors */
-  --bg-success: #34D399;  /* success */
-
-/* ========== TEXT COLORS ========== */
-  --text-pri: #F1F5F9;    /* main readable text */
-  --text-sec: #94A3B8;    /* secondary text */
-  --text-muted: #64748B;  /* completed / low priority */
-  --text-inverse: #0F172A;/* text on bright buttons */
-  --text-danger: #FCA5A5;
-  --text-success: #6EE7B7;
-
-/* ========== ACCENT USAGE ========== */
-  --border-subtle: #2A3441;
-  --focus-ring: #22D3EE;
-
-/* ========== SPACING (kept yours, good scale) ========== */
-  --padding-sm:0.5rem;
-  --padding-md:1rem;
-  --padding-lg:1.5rem;
-  --padding-xl:2rem;
-  --padding-2xl:3rem;
-
-  --margin-sm:0.5rem;
-  --margin-md:1rem;
-  --margin-lg:1.5rem;
-  --margin-xl:2rem;
-  --margin-2xl:3rem;
-
-  --gutter-sm:0.5rem;
-  --gutter-md:1rem;
-  --gutter-lg:1.5rem;
-  --gutter-xl:2rem;
-  --gutter-2xl:3rem;
-
-/* ========== TYPOGRAPHY SCALE (solid) ========== */
-  --font-sm:0.75rem;
-  --font-md:1rem;
-  --font-lg:1.25rem;
-  --font-xl:1.5rem;
-  --font-2xl:2rem;
-
-/* ========== RADIUS (nice modern softness) ========== */
-  --radius-sm:0.25rem;
-  --radius-md:0.5rem;
-  --radius-lg:0.75rem;
-  --radius-xl:1rem;
-  --radius-2xl:1.25rem;
+  min-height: 100vh;
+  width: 100%;
 }

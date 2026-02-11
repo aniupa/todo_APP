@@ -1,17 +1,11 @@
-import { useContext  } from "react";
+import { useContext } from "react";
 import uniqid from "uniqid";
 import { MyContext } from "../context/context";
+import TaskCard from "../components/taskCard/TaskCard";
 
 export const useFilterTasks = () => {
-  const {task, setTask, inputVal, setInputVal}=useContext(MyContext);
-  const handleCheck = (index, status) => {
-    const updatedTask = task.map((item) =>
-      index === item.id ? { ...item, isCompleted: status } : item,
-    );
-    setTask(updatedTask);
-    localStorage.setItem("tasks", JSON.stringify(updatedTask));
-  };
- 
+  const { tasks, setTasks, inputVal, setInputVal } = useContext(MyContext);
+  
 
   const addNewTask = () => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -19,66 +13,34 @@ export const useFilterTasks = () => {
     const newTask = { task: inputVal, isCompleted: false, id: uniqid() };
     const updatedTasks = [...existingTasks, newTask];
 
-    setTask(updatedTasks);
+    setTasks(updatedTasks);
     setInputVal("");
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
-  const pendingTasks = task.filter((item) => item.isCompleted === false);
-  const completedTasks = task.filter((item) => item.isCompleted === true);
+
+  const pendingTasks = tasks.filter((item) => item.isCompleted === false);
+  const completedTasks = tasks.filter((item) => item.isCompleted === true);
+
   const pendingList =
-    pendingTasks.length > 0 ? (
-      <ol>
-        {pendingTasks.map((item) => (
-          <li key={item.id}>
-            {item.task}{" "}
-            <input
-              type="checkbox"
-              checked={item.isCompleted}
-              onChange={(e) => handleCheck(item.id, e.target.checked)}
-            />{" "}
-          </li>
-        ))}
-      </ol>
-    ) : (
-      <> empty</>
-    );
+    
+    pendingTasks.length > 0 &&
+    pendingTasks.map((item) => (
+      <TaskCard task={item.task} key={item.id} id={item.id} isCompleted={item.isCompleted} />
+    ));
+
   const completeList =
-    completedTasks.length > 0 ? (
-      <ol>
-        {completedTasks.map((item) => (
-          <li key={item.id}>
-            {item.task}{" "}
-            <input
-              type="checkbox"
-              checked={item.isCompleted}
-              onChange={(e) => handleCheck(item.id, e.target.checked)}
-            />{" "}
-          </li>
-        ))}
-      </ol>
-    ) : (
-      <>empty</>
-    );
+    completedTasks &&
+    completedTasks.length > 0 &&
+    completedTasks.map((item) => (
+      <TaskCard task={item.task} key={item.id} isCompleted={item.isCompleted} id={item.id} />
+    ));
 
   const renderList =
-    task && task.length > 0 ? (
-      <>
-        <ol>
-          {task.map((item) => (
-            <li key={item.id}>
-              {item.task}
-              <input
-                type="checkbox"
-                checked={item.isCompleted}
-                onChange={(e) => handleCheck(item.id, e.target.checked)}
-              />
-            </li>
-          ))}
-        </ol>
-      </>
-    ) : (
-      <>empty</>
-    );
+    tasks &&
+    tasks.length > 0 &&
+    tasks.map((item) => (
+      <TaskCard task={item.task} key={item.id} isCompleted={item.isCompleted} id={item.id} />
+    ));
 
   return { pendingList, completeList, addNewTask, renderList };
 };

@@ -3,15 +3,15 @@ import { MyContext } from "./context";
 
 export const Wrapper = ({ children }) => {
   const [inputVal, setInputVal] = useState("");
-  const [task, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
    useEffect(() => {
     const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setTask(existingTasks);
+    setTasks(existingTasks);
   }, []);
   
 
   return (
-    <MyContext.Provider value={{ inputVal, setInputVal, task, setTask }}>
+    <MyContext.Provider value={{ inputVal, setInputVal, tasks, setTasks }}>
       {children}
     </MyContext.Provider>
   );
