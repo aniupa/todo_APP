@@ -7,14 +7,24 @@ header {
   margin-top: var(--margin-sm);
 }
 input {
-  border: none;
-  background-color: var(--bg-ter);
+  /* border: none; */
+  background-color: var(--bg-sec);
   padding: 2px var(--padding-md);
   border-radius: var(--radius-sm);
+  color: var(--text-main);
 }
-button{
-    
+.taskInput {
+  border: 1px solid var(--border);
+}
+input:hover {
+  background: var(--bg-ter);
+}
+
+button {
   padding: 2px var(--padding-sm);
-    background: var(--bg-success);
+  background: var(--success);
   border-radius: var(--radius-sm);
+}
+button:hover {
+  background: var(--accent-soft);
 }

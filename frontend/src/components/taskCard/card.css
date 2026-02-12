@@ -2,15 +2,22 @@
   width: 80%;
   
   padding: var(--padding-sm) var(--padding-md);
-  background-color: var(--card-sec);
+  background-color: var(--bg-sec);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   display: flex;
   gap: var(--gutter-md);
 }
+.card:hover{
+  background: var(--bg-ter);
+}
 .card .taskInput {
   background-color: transparent;
   width: 95%;
-  border-bottom: 1px solid var(--border-pri);
+  border-bottom: 2px solid var(--border);
   text-align: center;
   margin-bottom: var(--margin-sm);
+  border: none;
+  
+  
 }

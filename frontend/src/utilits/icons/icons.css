@@ -1,0 +1,9 @@
+.binIcon {
+  width: 18px;
+  height: 20px;
+  color: var(--danger);
+  border-radius: var(--radius-xl);
+}
+.binIcon:hover{
+    color: var(--danger-hover);
+}

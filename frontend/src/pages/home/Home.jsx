@@ -5,7 +5,7 @@ import { useFilterTasks } from "../.././hooks/filterTasks.jsx";
 import { MyContext } from "../../context/context.jsx";
 
 const Home = () => {
-  const [filterPg, setfilterPg] = useState(1);
+  const [filterPg, setFilterPg] = useState(1);
 
   const { tasks, setTasks, inputVal, setInputVal } = useContext(MyContext);
   const { pendingList, completeList, renderList } = useFilterTasks(
@@ -29,7 +29,7 @@ const Home = () => {
           {" "}
           <span
             onClick={() =>
-              filterPg >= 2 ? setfilterPg(filterPg - 1) : filterPg
+              filterPg >= 2 ? setFilterPg(filterPg - 1) : filterPg
             }
           >
             <svg
@@ -51,7 +51,7 @@ const Home = () => {
           </span>
           <span
             onClick={() =>
-              filterPg <= 2 ? setfilterPg(filterPg + 1) : filterPg
+              filterPg <= 2 ? setFilterPg(filterPg + 1) : filterPg
             }
           >
             <svg

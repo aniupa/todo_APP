@@ -1,33 +1,35 @@
+[data-theme="dark"] {
+    color-scheme: dark;
+  }
+  [data-theme="light"] {
+    color-scheme: light;
+  }
 :root {
-  /* ========== BACKGROUND COLORS ========== */
-  --bg-pri: #0f172a; /* main app background (deep navy) */
-  --bg-sec: #1e293b; /* cards, panels */
-  --bg-ter: #334155; /* hover surfaces / subtle contrast */
-  --bg-acc: #5c6ac4; /* primary brand color */
-  --bg-act: #22d3ee; /* buttons, active states */
-  --bg-danger: #f87171; /* errors */
-  --bg-success: #34d399; /* success */
+  
+  /* ========== BACKGROUNDS ========== */
+  --bg-pri: light-dark(#ffffff, #0f172a);
+  --bg-sec: light-dark(#f1f5f9, #1e293b);
+  --bg-ter: light-dark(#e2e8f0, #334155);
 
-  /* ========== TEXT COLORS ========== */
-  --text-pri: #f1f5f9; /* main readable text */
-  --text-sec: #94a3b8; /* secondary text */
-  --text-muted: #64748b; /* completed / low priority */
-  --text-inverse: #0f172a; /* text on bright buttons */
-  --text-danger: #fca5a5;
-  --text-success: #6ee7b7;
+  /* ========== ACCENTS ========== */
+  --accent: light-dark(#2563eb, #22d3ee);
+  --accent-soft: light-dark(#93c5fd, #67e8f9);
 
-   /* ========== CARD COLORS ========== */
- 
-  --card-pri: #f1f5f9; /* main readable text */
-  --card-sec: #94a3b8; /* secondary text */
-  --card-muted: #64748b; /* completed / low priority */
-  --card-inverse: #0f172a; /* text on bright buttons */
-  --card-danger: #fca5a5;
-  --card-success: #6ee7b7;
+  /* ========== STATUS ========== */
+  --success: light-dark(#16a34a, #34d399);
+  --success-hover: light-dark(#15803d, #059669);
 
-  /* ========== ACCENT USAGE ========== */
-  --border-pri: #2a3441;
-  --focus-ring: #22d3ee;
+  --danger: light-dark(#dc2626, #ef4444);
+  --danger-hover: light-dark(#b91c1c, #dc2626);
+
+  /* ========== TEXT ========== */
+  --text-main: light-dark(#0f172a, #f1f5f9);
+  --text-dim: light-dark(#475569, #94a3b8);
+  --text-faint: light-dark(#64748b, #64748b);
+
+  /* ========== BORDERS ========== */
+  --border: light-dark(#cbd5e1, #2a3441);
+  --focus-ring: light-dark(#2563eb, #22d3ee);
 
   /* ========== SPACING (kept yours, good scale) ========== */
   --padding-sm: 0.5rem;
@@ -66,11 +68,20 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition:
+    background-color 0.25s,
+    color 0.25s,
+    border-color 0.25s;
 }
 body,
 html {
   background: var(--bg-pri);
-  color: var(--text-pri);
+  color: var(--text-main);
   min-height: 100vh;
   width: 100%;
+}
+.taskInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--focus-ring);
+  outline-offset: 2px;
 }

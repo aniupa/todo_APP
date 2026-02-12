@@ -5,9 +5,9 @@
   gap: var(--gutter-md);
 }
 .tasksContainer {
-  background-color: var(--bg-sec);
+  background-color: var(--bg-pri);
   width: 100%;
-  height: 100%;
+  height: 80%;
   /* min-height: 440px; */
   max-height: 520px;
   border-radius: var(--radius-sm);
