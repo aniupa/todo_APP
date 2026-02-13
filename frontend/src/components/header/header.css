@@ -19,12 +19,51 @@ input {
 input:hover {
   background: var(--bg-ter);
 }
+.heroToggleContainer {
+  max-width: 650px;
+  
+  
+  
 
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 button {
   padding: 2px var(--padding-sm);
   background: var(--success);
   border-radius: var(--radius-sm);
 }
 button:hover {
-  background: var(--accent-soft);
+  background: var(--success-hover);
+}
+.addTasksPc{
+  display: none;
+}
+
+@media (min-width: 786px) {
+  .heroToggleContainer {
+    margin: var(--margin-2xl) auto;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    background: var(--bg-sec);
+  padding: var(--padding-md);
+  }
+  .addTasksMb{
+    display: none;
+  }
+  .addTasksPc{
+    display: flex;
+    
+    gap: var(--gutter-sm);
+  }
+  .addTasksPc input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--border);
+    transition: 0.2s ease;
+  }
+  .addTasksPc input:focus {
+  border-bottom: 1px solid var(--accent);
+}
+
 }

@@ -1,14 +1,18 @@
 .card {
   width: 80%;
-  
+  max-width: 650px;
+
   padding: var(--padding-sm) var(--padding-md);
+  margin: var(--padding-sm) var(--padding-md);
   background-color: var(--bg-sec);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   display: flex;
   gap: var(--gutter-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: 0.2s ease;
 }
-.card:hover{
+.card:hover {
   background: var(--bg-ter);
 }
 .card .taskInput {
@@ -18,6 +22,4 @@
   text-align: center;
   margin-bottom: var(--margin-sm);
   border: none;
-  
-  
 }

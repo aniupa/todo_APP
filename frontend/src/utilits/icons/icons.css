@@ -4,6 +4,23 @@
   color: var(--danger);
   border-radius: var(--radius-xl);
 }
-.binIcon:hover{
-    color: var(--danger-hover);
+.binIcon:hover {
+  color: var(--danger-hover);
+}
+
+.MoonIcon {
+  width: 18px;
+  height: 20px;
+  color: var(--accent);
+  border-radius: var(--radius-xl);
+}
+.MoonIcon:hover {
+  color: var(--accent-soft);
+}
+
+.RightArrowIcon {
+  width: 15px;
+}
+.LeftArrowIcon {
+  width: 15px;
 }
