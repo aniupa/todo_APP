@@ -1,19 +1,15 @@
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import Header from "../../components/header/Header.jsx";
 import "./home.css";
 import { useFilterTasks } from "../.././hooks/filterTasks.jsx";
-import { MyContext } from "../../context/context.jsx";
 import { LeftArrowIcon, RightArrowIcon } from "../../utilits/icons/icons.jsx";
 const Home = () => {
   const [filterPg, setFilterPg] = useState(1);
   const [filterPgPc, setFilterPgPc] = useState("all");
 
-  const { tasks, setTasks, inputVal, setInputVal } = useContext(MyContext);
-  const { pendingList, completeList, renderList } = useFilterTasks(
-    tasks,
-    setTasks,
-    inputVal,
-    setInputVal,
+  const { pendingList, completeList, renderList, Count } = useFilterTasks(
+    
+    
   );
 
   return (
@@ -21,8 +17,9 @@ const Home = () => {
       <div className="container">
         <Header />
         {/* mobile styled filter */}
-        <div className="filterToggleMb">
-          <section>
+        <div className="tasksContainer">
+          {/* filter toggle option only in mobile */}
+          <div className="filterToggleMb">
             {" "}
             <span
               onClick={() =>
@@ -35,9 +32,9 @@ const Home = () => {
               {LeftArrowIcon}
             </span>
             <span style={{ margin: " var(--margin-sm)" }}>
-              {filterPg === 1 && "all tasks"}
-              {filterPg === 2 && "pending tasks"}
-              {filterPg === 3 && "completed tasks"}
+              {filterPg === 1 && "Tasks"}
+              {filterPg === 2 && "Pending "}
+              {filterPg === 3 && "Completed "}
             </span>
             <span
               onClick={() =>
@@ -49,52 +46,55 @@ const Home = () => {
             >
               {RightArrowIcon}
             </span>{" "}
-          </section>
-        </div>
-        {/* Pc styled filter */}
-        <section className="tasksContainerPc">
+          </div>
+          <div className="tasksContainerMb">
+            {" "}
+            {(filterPg === 1 && renderList) ||
+              (filterPg === 2 && pendingList) ||
+              (filterPg === 3 && completeList)}
+          </div>
+          {/* Pc styled filter layout only visible in  pc*/}
           <div className="left">
             <h3>Stats & filters</h3>
             <hr />
             <br />
             <span
               onClick={() => setFilterPgPc("pending")}
-              className={filterPgPc === "pending" ? "isActive" : {}}
+              className={filterPgPc === "pending" ? "isActive" : "notActive"}
             >
-              Pending :
+              Pending :{Count.pendingCount}
             </span>
             <br />
             <span
-              className={filterPgPc === "all" ? "isActive" : {}}
+              className={filterPgPc === "all" ? "isActive" : "notActive"}
               onClick={() => setFilterPgPc("all")}
             >
-              All tasks :
+              All tasks : {Count.all}
             </span>
             <br />
             <span
-              className={filterPgPc === "completed" ? "isActive" : {}}
+              className={filterPgPc === "completed" ? "isActive" : "notActive"}
               onClick={() => setFilterPgPc("completed")}
             >
-              Completed tasks :
+              Completed tasks :{Count.completedCount || 0}
             </span>
           </div>
           <div className="right">
-            {/* pc filter tasks container */} <h2>{filterPgPc} Tasks</h2><hr />
-            
+            {/* pc filter tasks container */}{" "}
+            <div className="rightHead">
+              <h2>{filterPgPc} Tasks</h2>
+              <hr />
+            </div>
+            <div className="rightBody">
             {(filterPgPc === "pending" && pendingList) ||
               (filterPgPc === "all" && renderList) ||
-              (filterPgPc === "completed" && completeList)}
+              (filterPgPc === "completed" && completeList)}</div>
           </div>
-          {/*  */}
-        </section>
-        <section className="tasksContainerMb">
-          {" "}
-          {(filterPg === 1 && renderList) ||
-            (filterPg === 2 && pendingList) ||
-            (filterPg === 3 && completeList)}
-        </section>
+        </div>
       </div>
+    {console.log('render')}
     </div>
+    
   );
 };
 

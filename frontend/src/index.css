@@ -1,14 +1,13 @@
 [data-theme="dark"] {
-    color-scheme: dark;
-  }
-  [data-theme="light"] {
-    color-scheme: light;
-  }
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  color-scheme: light;
+}
 :root {
-  
   /* ========== BACKGROUNDS ========== */
-  --bg-pri: light-dark(#F2F2F7, #0B1120);
-  --bg-sec: light-dark(#FFFFFF, #111827);
+  --bg-pri: light-dark(#f2f2f7, #0b1120);
+  --bg-sec: light-dark(#ffffff, #111827);
   --bg-ter: light-dark(#e2e8f0, #334155);
 
   /* ========== ACCENTS ========== */
@@ -16,18 +15,18 @@
   --accent-soft: light-dark(#93c5fd, #67e8f9);
 
   /* ========== STATUS ========== */
-  --success: light-dark(#D97706, #0EA5E9);
-  --success-hover: light-dark(#0284C7, #0284C7);
+  --success: light-dark(#d97706, #0ea5e9);
+  --success-hover: light-dark(#0284c7, #0284c7);
 
-  --danger: light-dark(#EF4444, #EF4444);
+  --danger: light-dark(#ef4444, #ef4444);
   --danger-hover: light-dark(#b91c1c, #dc2626);
 
   /* ========== TEXT ========== */
-  --text-main: light-dark(#1E293B, #E5E7EB);
-  --text-dim: light-dark(#64748B, #9CA3AF);
+  --text-main: light-dark(#1e293b, #e5e7eb);
+  --text-dim: light-dark(#64748b, #9ca3af);
 
   /* ========== BORDERS ========== */
-  --border: light-dark(#E2E8F0, #1F2937);
+  --border: light-dark(#e2e8f0, #1f2937);
   --focus-ring: light-dark(#2563eb, #22d3ee);
 
   /* ========== SPACING (kept yours, good scale) ========== */
@@ -67,10 +66,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition:
-    background-color 0.3s ease-in-out,
-    color 0.3s ease-in-out,
-    border-color 0.3s ease-in-out;
 }
 body,
 html {
@@ -78,7 +73,8 @@ html {
   color: var(--text-main);
   min-height: 100vh;
   width: 100%;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  transition: background-color 0.3s ease-in;
 }
 .taskInput:focus {
   outline: none;
